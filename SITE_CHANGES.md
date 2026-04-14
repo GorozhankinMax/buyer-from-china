@@ -688,3 +688,5 @@
 - 2026-04-14: Подключено техническое SEO под домен https://www.gg-way.ru — canonical, og:url, абсолютные og/twitter изображения, schema.org url/logo, обновлен robots.txt и добавлен sitemap.xml.
 
 - 2026-04-14: Added Yandex Webmaster verification file to public root for domain ownership confirmation.
+
+- 2026-04-14: Restored App.jsx and PrivacyPolicyModal.jsx to clean UTF-8 after deployment showed a broken frontend state on the production domain.
