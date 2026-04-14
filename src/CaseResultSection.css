@@ -1,0 +1,378 @@
+.case-story {
+  padding-block: clamp(112px, 12vw, 164px);
+}
+
+.case-story__container {
+  display: grid;
+  gap: clamp(54px, 7vw, 96px);
+}
+
+.case-story__hero,
+.case-step {
+  max-width: 980px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.case-story__eyebrow,
+.case-story__headline,
+.case-story__subheading,
+.case-story__hero-label,
+.case-story__hero-value,
+.case-story__hero-note,
+.case-step__step,
+.case-step__title,
+.case-step__microcopy,
+.case-line,
+.case-line__label,
+.case-line__value,
+.case-math__label,
+.case-math__equation,
+.case-math__footnote,
+.case-action__numbers,
+.case-action__label,
+.case-result__line,
+.case-result__total-label,
+.case-result__total-value,
+.case-result__total-note,
+.case-story__final-note {
+  margin: 0;
+}
+
+.case-story__intro {
+  display: grid;
+  gap: 14px;
+  max-width: none;
+  width: 100%;
+}
+
+.case-story__eyebrow,
+.case-step__step {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+
+.case-story__headline {
+  max-width: 13ch;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(44px, 4vw, 82px);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+  color: rgba(248, 251, 250, 0.98);
+}
+
+.case-story__headline span,
+.case-result__total-value,
+.case-story__hero-value,
+.case-line--after .case-line__value,
+.case-action__numbers strong,
+.case-math__equation strong {
+  color: var(--text-accent);
+  text-shadow: 0 0 34px rgba(var(--brand-accent-rgb), 0.14);
+}
+
+.case-story__subheading,
+.case-step__microcopy,
+.case-math__footnote,
+.case-action__label,
+.case-result__total-note,
+.case-story__final-note {
+  color: rgba(214, 223, 228, 0.64);
+}
+
+.case-story__subheading,
+.case-step__microcopy,
+.case-math__footnote,
+.case-action__label,
+.case-story__final-note {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.case-story__hero {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.case-story__hero-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(188, 255, 216, 0.76);
+}
+
+.case-story__hero-value {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(74px, 8vw, 150px);
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.08em;
+}
+
+.case-story__hero-note {
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.5;
+  color: rgba(226, 235, 229, 0.72);
+}
+
+.case-story__hero-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: clamp(16px, 2vw, 28px);
+  align-items: center;
+  width: min(100%, 820px);
+  margin-top: 8px;
+}
+
+.case-story__hero-side {
+  display: flex;
+  justify-content: center;
+}
+
+.case-story__hero-side span {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(34px, 4vw, 60px);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  color: rgba(248, 251, 250, 0.96);
+}
+
+.case-story__hero-side--accent span {
+  color: var(--text-accent);
+}
+
+.case-story__hero-arrow {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(48px, 5vw, 76px);
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(188, 255, 216, 0.88);
+}
+
+.case-story__steps {
+  display: grid;
+  gap: clamp(54px, 7vw, 96px);
+}
+
+.case-step {
+  display: grid;
+  gap: clamp(24px, 3vw, 36px);
+}
+
+.case-step + .case-step {
+  padding-top: clamp(42px, 6vw, 68px);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.case-step__head {
+  display: grid;
+  gap: 10px;
+}
+
+.case-step__title {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+  color: rgba(248, 251, 250, 0.98);
+}
+
+.case-line-list,
+.case-action-list,
+.case-result {
+  display: grid;
+  gap: clamp(14px, 2vw, 18px);
+}
+
+.case-line {
+  display: grid;
+  grid-template-columns: minmax(140px, 200px) 1fr;
+  gap: 140px;
+  align-items: baseline;
+}
+
+.case-line__label {
+  white-space: nowrap;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.case-line__value {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: rgba(242, 247, 244, 0.88);
+}
+
+.case-math {
+  display: grid;
+  gap: 12px;
+  padding-top: 40px;
+}
+
+.case-math__label,
+.case-result__total-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.44);
+}
+
+.case-math__equation {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(36px, 4.4vw, 58px);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  color: rgba(248, 251, 250, 0.96);
+  text-wrap: balance;
+}
+
+.case-action-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.6vw, 34px);
+}
+
+.case-action {
+  display: grid;
+  gap: 10px;
+}
+
+.case-action__numbers {
+  display: grid;
+  gap: 6px;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(30px, 3.6vw, 46px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: rgba(242, 247, 244, 0.72);
+}
+
+.case-result__line {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.case-result__line span {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(214, 223, 228, 0.72);
+}
+
+.case-result__line strong {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  color: rgba(248, 251, 250, 0.98);
+}
+
+.case-result__total {
+  display: grid;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.case-result__total-value {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(56px, 7vw, 108px);
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: -0.08em;
+}
+
+@media (max-width: 1100px) {
+  .case-action-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .case-story {
+    padding-top: 56px;
+  }
+
+  .case-story__container {
+    padding-top: 33svh;
+  }
+}
+
+@media (max-width: 640px) {
+  .case-story {
+    padding-block: 56px 84px;
+  }
+
+  .case-story__container {
+    padding-top: 33svh;
+  }
+
+  .case-story__headline {
+    max-width: none;
+  }
+
+  .case-step__title {
+    font-size: clamp(40px, 8vw, 52px);
+  }
+
+  .case-story__hero-flow,
+  .case-line {
+    grid-template-columns: 1fr;
+  }
+
+  .case-line {
+    gap: 4px;
+  }
+
+  .case-line__value {
+    margin-bottom: 80px;
+  }
+
+  .case-result__line {
+    grid-template-columns: 1fr;
+  }
+
+  .case-result {
+    gap: 80px;
+  }
+
+  .case-result__line {
+    gap: 10px;
+  }
+
+  .case-result__total {
+    gap: 14px;
+    padding-top: 30px;
+  }
+
+  .case-action-list {
+    gap: 80px;
+  }
+
+  .case-story__hero-arrow {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+
+  .case-story__hero-value {
+    font-size: clamp(60px, 18vw, 96px);
+  }
+}

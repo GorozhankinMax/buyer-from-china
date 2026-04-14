@@ -1,0 +1,250 @@
+.solve-section {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  isolation: isolate;
+}
+
+.solve-section__particles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 420ms ease;
+}
+
+.solve-section__particles--visible {
+  opacity: 0.94;
+}
+
+.solve-section__container {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(168px, 16vw, 220px) clamp(112px, 11vw, 142px);
+}
+
+.solve-editorial {
+  width: min(100%, 980px);
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  gap: clamp(18px, 2.4vw, 24px);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.solve-section__title {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+  color: var(--text-strong);
+  text-wrap: balance;
+}
+
+.solve-section__subtitle {
+  margin: 0;
+  max-width: 28ch;
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.6;
+  color: var(--text-subtle);
+  position: relative;
+  z-index: 2;
+  transition:
+    color 260ms ease,
+    text-shadow 260ms ease,
+    filter 260ms ease;
+}
+
+.solve-points {
+  width: min(100%, 920px);
+  margin-top: clamp(34px, 4.6vw, 48px);
+  display: grid;
+  gap: clamp(26px, 3vw, 34px);
+}
+
+.solve-point {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.032em;
+  color: rgba(255, 255, 255, 0.9);
+  transition:
+    color 260ms ease,
+    text-shadow 260ms ease,
+    opacity 260ms ease,
+    filter 260ms ease;
+  position: relative;
+  z-index: 2;
+  text-wrap: balance;
+}
+
+.solve-point span {
+  display: inline-block;
+  transition: transform 260ms ease;
+}
+
+.solve-section__subtitle span {
+  display: inline-block;
+  transition: transform 260ms ease;
+}
+
+.solve-point--left {
+  justify-self: start;
+  max-width: 16ch;
+  text-align: left;
+}
+
+.solve-point--right {
+  justify-self: end;
+  max-width: 12ch;
+  text-align: right;
+  margin-right: clamp(2px, 0.1vw, 12px);
+}
+
+.solve-point--center {
+  justify-self: center;
+  max-width: 19ch;
+  text-align: center;
+  margin-left: clamp(20px, 10vw, 120px);
+}
+
+.solve-point--left-wide {
+  justify-self: start;
+  max-width: 22ch;
+  margin-left: clamp(6px, 1vw, 42px);
+  text-align: left;
+}
+
+.solve-point--soft {
+  opacity: 0.72;
+}
+
+.solve-point--strong {
+  opacity: 0.92;
+}
+
+.solve-point--accent {
+  color: var(--text-accent);
+  opacity: 1;
+  text-shadow: 0 0 20px rgba(var(--brand-accent-rgb), 0.12);
+}
+
+.solve-section__subtitle:hover {
+  color: rgba(232, 244, 238, 0.96);
+  filter: saturate(1.05);
+  text-shadow:
+    0 0 18px rgba(var(--brand-accent-rgb), 0.12),
+    0 12px 26px rgba(0, 0, 0, 0.14);
+}
+
+.solve-section__subtitle:hover span {
+  transform: scale(1.03);
+}
+
+.solve-point:hover {
+  color: rgba(255, 255, 255, 0.98);
+  opacity: 1;
+  filter: saturate(1.06);
+  text-shadow:
+    0 0 22px rgba(var(--brand-accent-rgb), 0.12),
+    0 10px 22px rgba(0, 0, 0, 0.16);
+}
+
+.solve-point:hover span {
+  transform: scale(1.035);
+}
+
+.solve-point--accent:hover {
+  color: var(--accent-soft);
+  text-shadow:
+    0 0 26px rgba(var(--brand-accent-rgb), 0.18),
+    0 10px 22px rgba(0, 0, 0, 0.16);
+}
+
+@media (max-width: 900px) {
+  .solve-section__particles {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .solve-points {
+    width: min(100%, 760px);
+  }
+
+  .solve-point--left-wide {
+    margin-left: clamp(4px, 2vw, 18px);
+  }
+}
+
+@media (max-width: 640px) {
+  .solve-section__container {
+    min-height: 100svh;
+    display: grid;
+    align-items: center;
+    padding-block: 30px 88px;
+  }
+
+  .solve-editorial {
+    justify-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .solve-section__subtitle {
+    max-width: 32ch;
+  }
+
+  .solve-points {
+    width: 100%;
+    margin-top: 38px;
+    gap: 100px;
+  }
+
+  .solve-point,
+  .solve-point--left{
+    justify-self: center;
+    max-width: 18ch;
+    margin-left: -20%;
+    margin-right: 0;
+    text-align: center;
+  }
+  .solve-point--right{
+    justify-self: center;
+    max-width: 18ch;
+    margin-left: 30%;
+    margin-right: 0;
+    text-align: center;
+  }
+  .solve-point--center{
+    justify-self: center;
+    max-width: 18ch;
+    margin-left: -30%;
+    margin-right: 0;
+    text-align: left;
+  }
+  .solve-point--left-wide {
+    justify-self: center;
+    max-width: 18ch;
+    margin-left: 30%;
+    margin-right: 0;
+    text-align: right;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1180px) {
+  .solve-points {
+    margin-top: 56px;
+    gap: 72px;
+  }
+}
