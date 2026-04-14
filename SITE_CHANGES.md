@@ -684,3 +684,7 @@
 - 2026-04-14: В тексте согласия слово 'с' перенесено внутрь кликабельной фразы, чтобы убрать пустой разрыв перед ссылкой на политику.
 
 - 2026-04-14: Ссылка на политику в тексте согласия переведена с inline-button на обычный интерактивный span, чтобы перенос строки работал как у обычного текста.
+
+- 2026-04-14: Подключено техническое SEO под домен https://www.gg-way.ru — canonical, og:url, абсолютные og/twitter изображения, schema.org url/logo, обновлен robots.txt и добавлен sitemap.xml.
+
+- 2026-04-14: Added Yandex Webmaster verification file to public root for domain ownership confirmation.

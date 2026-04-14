@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+Host: https://www.gg-way.ru
+Sitemap: https://www.gg-way.ru/sitemap.xml
