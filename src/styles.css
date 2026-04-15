@@ -280,7 +280,7 @@ h6 {
 
 .mobile-header__logo {
   display: block;
-  width: 92px;
+  width: 148px;
   height: auto;
 }
 
@@ -881,7 +881,7 @@ section[aria-labelledby="cases-title"] {
 
 .hero__floating-logo-image {
   display: block;
-  width: clamp(92px, 12vw, 156px);
+  width: clamp(168px, 14vw, 248px);
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 16px 26px rgba(0, 0, 0, 0.32));
@@ -1734,7 +1734,7 @@ section[aria-labelledby="cases-title"] {
 
 .footer__logo-mark {
   display: block;
-  width: clamp(96px, 12vw, 138px);
+  width: clamp(148px, 14vw, 210px);
   height: auto;
   object-fit: contain;
 }
@@ -1922,7 +1922,7 @@ section[aria-labelledby="cases-title"] {
   }
 
   .hero__floating-logo-image {
-    width: clamp(86px, 12vw, 132px);
+    width: clamp(156px, 16vw, 220px);
   }
 
   .hero__actions {
@@ -1988,7 +1988,7 @@ section[aria-labelledby="cases-title"] {
   }
 
   .hero__floating-logo-image {
-    width: clamp(84px, 22vw, 132px);
+    width: clamp(134px, 34vw, 190px);
   }
 
   .hero__brand-block {

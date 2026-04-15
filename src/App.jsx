@@ -45,6 +45,12 @@ const currencyOptions = [
 ];
 
 const initialSubmitState = { status: "idle", message: "" };
+const STATIC_ASSET_ORIGIN =
+  typeof window !== "undefined" && window.location.hostname === "www.gg-way.ru"
+    ? "https://buyer-from-china.vercel.app"
+    : "";
+
+const getStaticAssetUrl = (path) => `${STATIC_ASSET_ORIGIN}${path}`;
 
 function HeaderIcon({ icon }) {
   if (icon === "telegram") {
@@ -74,7 +80,7 @@ function HeaderIcon({ icon }) {
   }
 
   if (icon === "vk") {
-    return <img className="side-header__icon-vk" src="/vk.png" alt="" aria-hidden="true" />;
+    return <img className="side-header__icon-vk" src={getStaticAssetUrl("/vk.png")} alt="" aria-hidden="true" />;
   }
 
   return null;
@@ -263,7 +269,7 @@ export default function App() {
     <div className="page-shell">
       <div className="mobile-header">
         <a className="mobile-header__brand" href="#top" aria-label="G-Way">
-          <img className="mobile-header__logo" src="/logo.png" alt="G-Way" />
+          <img className="mobile-header__logo" src={getStaticAssetUrl("/logo.png")} alt="G-Way" />
         </a>
         <button
           className={`mobile-header__menu-button ${isMobileMenuOpen ? "mobile-header__menu-button--open" : ""}`}
@@ -341,7 +347,7 @@ export default function App() {
         <div className="hero__overlay" />
         <div className="hero__content">
           <a className="hero__floating-logo" href="#top" aria-label="G-Way">
-            <img className="hero__floating-logo-image" src="/logo.png" alt="G-Way" />
+            <img className="hero__floating-logo-image" src={getStaticAssetUrl("/logo.png")} alt="G-Way" />
           </a>
           <div className="hero__actions">
             <p className="hero__tagline">Снижаем закупочную цену товара из Китая</p>
@@ -510,7 +516,7 @@ export default function App() {
       <footer className="footer">
         <div className="section__container footer__inner">
           <div className="footer__brand reveal-up" data-reveal>
-            <img className="footer__logo-mark" src="/logo.png" alt="G-Way" />
+            <img className="footer__logo-mark" src={getStaticAssetUrl("/logo.png")} alt="G-Way" />
             <p className="footer__note">Закупка, контроль качества и логистика из Китая.</p>
           </div>
           <div className="footer__contacts reveal-up" data-reveal style={{ transitionDelay: "120ms" }}>
