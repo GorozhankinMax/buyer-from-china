@@ -1,4 +1,5 @@
 :root {
+  --app-stable-height: 100svh;
   --bg-main: #05070b;
   --bg-secondary: #11151c;
   --bg-elevated-rgb: 15, 18, 24;
@@ -823,7 +824,7 @@ section[aria-labelledby="cases-title"] {
 .hero {
   position: relative;
   --hero-fade-progress: 0;
-  min-height: 100svh;
+  min-height: var(--app-stable-height, 100svh);
   width: 100%;
   overflow: hidden;
   opacity: calc(1 - (var(--hero-fade-progress) * 0.92));
@@ -862,7 +863,7 @@ section[aria-labelledby="cases-title"] {
   display: grid;
   grid-template-rows: 1fr auto auto;
   align-content: stretch;
-  min-height: 100svh;
+  min-height: var(--app-stable-height, 100svh);
   padding: clamp(30px, 5vw, 48px) clamp(22px, 4vw, 42px) clamp(28px, 4vw, 42px);
   opacity: calc(1 - (var(--hero-fade-progress) * 0.44));
   transform: translate3d(0, calc(var(--hero-fade-progress) * -24px), 0);
@@ -937,15 +938,15 @@ section[aria-labelledby="cases-title"] {
   align-self: center;
   width: 100%;
   margin-inline: auto;
-  margin-top: clamp(64px, 12vh, 150px);
-  margin-bottom: clamp(42px, 8vh, 84px);
+  margin-top: clamp(64px, calc(var(--app-stable-height, 100svh) * 0.12), 150px);
+  margin-bottom: clamp(42px, calc(var(--app-stable-height, 100svh) * 0.08), 84px);
 }
 
 .hero__cta-stack {
   display: grid;
   justify-items: center;
   gap: clamp(14px, 2.2vw, 20px);
-  margin-top: clamp(18px, 4vh, 44px);
+  margin-top: clamp(18px, calc(var(--app-stable-height, 100svh) * 0.04), 44px);
 }
 
 .hero__tagline {
@@ -1858,7 +1859,7 @@ section[aria-labelledby="cases-title"] {
 
   .hero__actions {
     width: min(100%, 720px);
-    margin-top: clamp(56px, 10vh, 112px);
+    margin-top: clamp(56px, calc(var(--app-stable-height, 100svh) * 0.1), 112px);
   }
 
   .metrics-grid,
@@ -1927,8 +1928,8 @@ section[aria-labelledby="cases-title"] {
 
   .hero__actions {
     width: min(100%, 820px);
-    margin-top: clamp(52px, 9vh, 108px);
-    margin-bottom: clamp(28px, 7vh, 68px);
+    margin-top: clamp(52px, calc(var(--app-stable-height, 100svh) * 0.09), 108px);
+    margin-bottom: clamp(28px, calc(var(--app-stable-height, 100svh) * 0.07), 68px);
   }
 
   .hero__tagline {
@@ -2116,7 +2117,7 @@ section[aria-labelledby="cases-title"] {
   }
 
   .hero__actions {
-    margin-top: clamp(48px, 8vh, 88px);
+    margin-top: clamp(48px, calc(var(--app-stable-height, 100svh) * 0.08), 88px);
     margin-bottom: 28px;
   }
 

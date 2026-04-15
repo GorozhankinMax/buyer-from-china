@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PainSection from "./PainSection";
 import ProcessRoadmap from "./ProcessRoadmap";
 import SolveSection from "./SolveSection";
@@ -87,6 +87,7 @@ function HeaderIcon({ icon }) {
 }
 
 export default function App() {
+  const stableViewportHeightRef = useRef(0);
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [heroFadeProgress, setHeroFadeProgress] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -101,9 +102,45 @@ export default function App() {
   const [contactSubmitState, setContactSubmitState] = useState(initialSubmitState);
 
   useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+
+    let lastWidth = window.innerWidth;
+    const root = document.documentElement;
+
+    const syncStableViewportHeight = () => {
+      const currentWidth = window.innerWidth;
+      const currentHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+      const widthDelta = Math.abs(currentWidth - lastWidth);
+      const isCompact = currentWidth <= 1180;
+
+      if (!isCompact || widthDelta > 80 || stableViewportHeightRef.current === 0) {
+        stableViewportHeightRef.current = currentHeight;
+      }
+
+      const resolvedHeight = isCompact ? stableViewportHeightRef.current || currentHeight : currentHeight;
+      root.style.setProperty("--app-stable-height", `${resolvedHeight}px`);
+
+      lastWidth = currentWidth;
+    };
+
+    syncStableViewportHeight();
+    window.addEventListener("resize", syncStableViewportHeight);
+
+    return () => {
+      window.removeEventListener("resize", syncStableViewportHeight);
+      root.style.removeProperty("--app-stable-height");
+    };
+  }, []);
+
+  useEffect(() => {
+    const getViewportHeight = () => {
+      const currentHeight = window.innerHeight || document.documentElement.clientHeight || 1;
+      return window.innerWidth <= 1180 ? stableViewportHeightRef.current || currentHeight : currentHeight;
+    };
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const fadeDistance = Math.max(window.innerHeight * 0.72, 1);
+      const fadeDistance = Math.max(getViewportHeight() * 0.72, 1);
       setIsHeaderVisible(scrollY > 24);
       setHeroFadeProgress(Math.min(scrollY / fadeDistance, 1));
     };
@@ -116,6 +153,10 @@ export default function App() {
   useEffect(() => {
     let lastScrollY = window.scrollY;
     let scrollDirection = "down";
+    const getViewportHeight = () => {
+      const currentHeight = window.innerHeight || document.documentElement.clientHeight || 1;
+      return window.innerWidth <= 1180 ? stableViewportHeightRef.current || currentHeight : currentHeight;
+    };
 
     const trackScrollDirection = () => {
       const currentScrollY = window.scrollY;
@@ -147,9 +188,10 @@ export default function App() {
 
     const resetHiddenItems = () => {
       if (scrollDirection !== "up") return;
+      const viewportHeight = getViewportHeight();
       revealItems.forEach((item) => {
         const rect = item.getBoundingClientRect();
-        if (rect.top >= window.innerHeight) item.classList.remove("is-visible");
+        if (rect.top >= viewportHeight) item.classList.remove("is-visible");
       });
     };
 
@@ -167,7 +209,7 @@ export default function App() {
             return;
           }
 
-          if (scrollDirection === "up" && entry.boundingClientRect.top >= window.innerHeight) {
+          if (scrollDirection === "up" && entry.boundingClientRect.top >= getViewportHeight()) {
             entry.target.classList.remove("is-visible");
           }
         });
