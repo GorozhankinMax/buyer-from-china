@@ -1,11 +1,10 @@
-import { Suspense, lazy, useEffect, useState } from "react";
-
-const PainSection = lazy(() => import("./PainSection"));
-const ProcessRoadmap = lazy(() => import("./ProcessRoadmap"));
-const SolveSection = lazy(() => import("./SolveSection"));
-const TimelineSection = lazy(() => import("./TimelineSection"));
-const CaseResultSection = lazy(() => import("./CaseResultSection"));
-const PrivacyPolicyModal = lazy(() => import("./PrivacyPolicyModal"));
+import { useEffect, useState } from "react";
+import PainSection from "./PainSection";
+import ProcessRoadmap from "./ProcessRoadmap";
+import SolveSection from "./SolveSection";
+import TimelineSection from "./TimelineSection";
+import CaseResultSection from "./CaseResultSection";
+import PrivacyPolicyModal from "./PrivacyPolicyModal";
 
 const services = [
   { icon: "01", title: "Поиск поставщиков", text: "Подбираем фабрики и компании под ваш продукт, бюджет и нужный объем." },
@@ -46,10 +45,6 @@ const currencyOptions = [
 ];
 
 const initialSubmitState = { status: "idle", message: "" };
-
-function DeferredSection({ children }) {
-  return <Suspense fallback={null}>{children}</Suspense>;
-}
 
 function HeaderIcon({ icon }) {
   if (icon === "telegram") {
@@ -362,15 +357,9 @@ export default function App() {
       </section>
 
       <main className="landing-main">
-        <DeferredSection>
-          <PainSection />
-        </DeferredSection>
-        <DeferredSection>
-          <SolveSection />
-        </DeferredSection>
-        <DeferredSection>
-          <TimelineSection />
-        </DeferredSection>
+        <PainSection />
+        <SolveSection />
+        <TimelineSection />
 
         <section className="section" aria-labelledby="services-title" id="services">
           <div className="section__container">
@@ -390,12 +379,8 @@ export default function App() {
           </div>
         </section>
 
-        <DeferredSection>
-          <ProcessRoadmap />
-        </DeferredSection>
-        <DeferredSection>
-          <CaseResultSection />
-        </DeferredSection>
+        <ProcessRoadmap />
+        <CaseResultSection />
 
         <section className="section" aria-labelledby="cases-title" id="cases-archive">
           <div className="section__container">
@@ -520,11 +505,7 @@ export default function App() {
         </div>
       ) : null}
 
-      {isPrivacyModalOpen ? (
-        <Suspense fallback={null}>
-          <PrivacyPolicyModal onClose={() => setIsPrivacyModalOpen(false)} />
-        </Suspense>
-      ) : null}
+      {isPrivacyModalOpen ? <PrivacyPolicyModal onClose={() => setIsPrivacyModalOpen(false)} /> : null}
 
       <footer className="footer">
         <div className="section__container footer__inner">
